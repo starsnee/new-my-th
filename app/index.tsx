@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Game from './mainpage';
+import FirstPage from './first';
+
+const Stack = createStackNavigator();
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={FirstPage} />
+        <Stack.Screen name="Game" component={Game} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
