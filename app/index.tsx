@@ -1,11 +1,26 @@
-import { Text, View } from "react-native";
-import * as React from 'react';
-import VaultDoor from '../assets/vault-door.svg'; 
+import React, {useState} from 'react';
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Game from "./mainpage";
+import FirstPage from './first';
 
-export default function App() {
+const Stack = createStackNavigator();
+//create the constant data file 
+
+//create changable data file
+// type var = {
+//     wage = 0,
+
+// }
+export default function Index() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <VaultDoor width={128} height={128} />
-    </View>
+    <NavigationIndependentTree>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={FirstPage} />
+          <Stack.Screen name="Game" component={Game} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NavigationIndependentTree>
   );
 }
